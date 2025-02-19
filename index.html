@@ -1,117 +1,263 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Hero Section</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <style>
+      /* Hero Section Styling */
+      .hero-section {
+        width: 100%; /* Match Figma width */
+        height: 500px; /* Match Figma height */
+        background: url("images/Rectangle-58.webp") no-repeat center
+          center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        overflow: hidden;
+      }
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+      /* Hero Text Styling */
+      .hero-text {
+        color: rgb(255, 255, 255);
+        max-width: 600px; /* Limits text width for readability */
+        margin-left: 40px;
+      }
 
-    <title>Hello, world!</title>
+      .hero-text h1 {
+        font-size: 70px; /* Figma H1 */
+        font-weight: bold;
+      }
+
+      .hero-text p {
+        font-size: 18px; /* Figma paragraph */
+      }
+      .hero-img {
+        margin-right: 30px;
+      }
+      /* Hero Image Styling */
+      .hero-img img {
+        width: 100%; /* Responsive */
+        width: 430px; /* Adjust image size */
+      }
+
+      .card-custom {
+        width: 335px;
+
+        background-color: #1e1e1e; /* Dark theme */
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .card-custom:hover {
+        transform: scale(1.05);
+      }
+
+      .icon-svg {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+
+
+
+
+
+
+      .identity-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 0;
+        }
+
+        .identity-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 1000px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .identity-card img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            border-left: 5px solid red;
+        }
+
+        .identity-text {
+            flex: 1;
+        }
+
+        .identity-text h2 {
+            font-weight: bold;
+        }
+
+      /* Responsive Layout */
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        /* Tablet */
+        .hero-section {
+          flex-direction: column;
+
+          height: auto;
+          padding: 20px;
+        }
+
+        .hero-text h1 {
+          font-size: 50px; /* Adjust for tablets */
+        }
+
+        .hero-text p {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* Mobile */
+
+        .hero-text h1 {
+          font-size: 40px; /* Smaller for mobile */
+        }
+
+        .hero-img {
+          margin-right: unset !important;
+        }
+
+        .hero-text {
+          padding-top: 68px;
+          margin-left: unset !important;
+        }
+
+        .hero-img img {
+          max-width: 270px;
+        }
+
+        .card-custom {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
   </head>
   <body>
- 
- 
-    <div class="card">
-        <div class="icon">
-            <svg class="img1" width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.85148 12.5931V13.226H8.23392V13.8179C8.23392 15.4498 9.61911 16.7775 11.3217 16.7775C13.0243 16.7775 14.4095 15.4498 14.4095 13.8179V13.226H13.792V12.5931C14.6399 12.1901 15.3653 11.5874 15.9064 10.8322C16.5432 9.94343 16.8798 8.90179 16.8798 7.81985V5.45221C16.8798 2.51478 14.3864 0.125 11.3217 0.125C8.25701 0.125 5.76367 2.51478 5.76367 5.45221V7.81985C5.76367 8.90179 6.10028 9.94343 6.73707 10.8323C7.27814 11.5874 8.00357 12.1901 8.85148 12.5931ZM11.3217 9.59559C10.9807 9.59559 10.7042 9.33057 10.7042 9.00368C10.7042 8.67678 10.9807 8.41176 11.3217 8.41176C11.6628 8.41176 11.9393 8.67678 11.9393 9.00368C11.9393 9.33057 11.6628 9.59559 11.3217 9.59559ZM11.3217 2.49265C12.3433 2.49265 13.1744 3.28924 13.1744 4.26838C13.1744 4.82395 12.8975 5.35497 12.4336 5.68889C12.1241 5.91169 11.9393 6.26573 11.9393 6.63603C11.9393 6.96292 11.6628 7.22794 11.3217 7.22794C10.9807 7.22794 10.7042 6.96292 10.7042 6.63603C10.7042 5.89539 11.0734 5.18742 11.6919 4.74231C11.8491 4.62909 11.9393 4.45637 11.9393 4.26838C11.9393 3.942 11.6622 3.67647 11.3217 3.67647C10.9812 3.67647 10.7042 3.942 10.7042 4.26838C10.7042 4.59528 10.4277 4.86029 10.0866 4.86029C9.74554 4.86029 9.46904 4.59528 9.46904 4.26838C9.46904 3.28924 10.3002 2.49265 11.3217 2.49265Z" fill="black"/>
-                <path d="M15.6448 13.2532V13.8179C15.6448 16.1026 13.7056 17.9613 11.3219 17.9613C8.93824 17.9613 6.99898 16.1026 6.99898 13.8179V13.2532C3.54158 13.5532 0.823364 16.3463 0.823364 19.737C0.823364 20.0639 1.09987 20.3289 1.44093 20.3289H21.2029C21.5439 20.3289 21.8204 20.0639 21.8204 19.737C21.8204 16.3463 19.1022 13.5532 15.6448 13.2532Z" fill="black"/>
-                </svg>
-                
-         
-              
-              
+    <div class="">
+      <div
+        class="hero-section d-flex flex-md-row flex-lg-row justify-content-between flex-column align-items-center"
+      >
+        <!-- Text Section -->
+        <div class="hero-text text-lg-start">
+          <h6 class="text-black">SOLUTIONS</h6>
+          <h1>Identity Security</h1>
+          <p>
+            With 34+ years of experience, we transform cybersecurity challenges
+            into seamless solutions that ensure resilience, compliance, and
+            peace of mind.
+          </p>
         </div>
-        <h2>Identity Security</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
-        <a href="#" class="learn-more">Learn More 
 
-            <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-        </a>
-    
-
+        <!-- Image Section -->
+        <div class="hero-img text-center">
+          <img
+            class="img-fluid"
+            src="./images/Group 427320673.svg"
+            alt="Business Woman"
+          />
+        </div>
+      </div>
     </div>
-<div class="card2">
-    <div class="content">
-        <div class="scroll">
 
-            <div>gggg</div>
-            <div>gvgg</div>
-            <div>saaa</div>
-            <div>cccc</div>
-            <div>mmm</div>
-            <div>nnn</div>
-            <div>bbb</div>
-            <div>vvv</div>
-
-
-            <div>gggg</div>
-            <div>gvgg</div>
-            <div>saaa</div>
-            <div>cccc</div>
-            <div>mmm</div>
-            <div>nnn</div>
-            <div>bbb</div>
-            <div>vvv</div>
-
-            <div>gggg</div>
-            <div>gvgg</div>
-            <div>saaa</div>
-            <div>cccc</div>
-            <div>mmm</div>
-            <div>nnn</div>
-            <div>bbb</div>
-            <div>vvv</div>
-            
-            <div>gggg</div>
-            <div>gvgg</div>
-            <div>saaa</div>
-            <div>cccc</div>
-            <div>mmm</div>
-            <div>nnn</div>
-            <div>bbb</div>
-            <div>vvv</div>
-
-
-            <div>gggg</div>
-            <div>gvgg</div>
-            <div>saaa</div>
-            <div>cccc</div>
-            <div>mmm</div>
-            <div>nnn</div>
-            <div>bbb</div>
-            <div>vvv</div>
-
-            <div>gggg</div>
-            <div>gvgg</div>
-            <div>saaa</div>
-            <div>cccc</div>
-            <div>mmm</div>
-            <div>nnn</div>
-            <div>bbb</div>
-            <div>vvv</div>
-            
-
-
+    <div class="container py-5">
+      <div class="row justify-content-center gap-3">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card-custom">
+            <div class="icon-svg">
+              <!-- SVG Icon -->
+              <svg
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44.409 12.6154L34.0901 2.28156C32.3279 0.519429 29.2517 0.519429 27.4895 2.28156L25.8469 3.92422L24.5776 2.65489C22.7109 0.788228 19.7093 0.564229 17.768 2.17702C16.6778 3.07302 16.0058 4.38715 15.9312 5.79088C15.8565 7.19461 16.3941 8.56847 17.3797 9.569L18.7984 10.9877L15.961 13.825L21.9642 19.8282C22.5466 20.4106 22.5466 21.3514 21.9642 21.9338L19.6346 24.2633C18.8432 25.0548 18.7088 26.2943 19.3509 27.0708C19.7242 27.5188 20.232 27.7876 20.7994 27.8175C21.3669 27.8473 21.9045 27.6383 22.3077 27.2351L24.7717 24.7711C25.3541 24.1887 26.2949 24.1887 26.8773 24.7711L32.8805 30.7743L44.394 19.2458C46.2159 17.4239 46.2159 14.4671 44.394 12.6453L44.409 12.6154Z"
+                  fill="#E41F26"
+                />
+              </svg>
+            </div>
+            <h5 class="fw-bold">Tailored to Your Needs</h5>
+            <p class="card-text">
+              This card design is built to be completely responsive, ensuring
+              that your content remains beautiful and readable across all screen
+              sizes.
+            </p>
           </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="card-custom">
+            <div class="icon-svg">
+              <svg width="42" height="40" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M28.9169 16.8352C24.5447 12.4458 17.4568 12.4458 13.0846 16.8352C8.71235 21.2246 8.71235 28.3403 13.0846 32.7298C17.4568 37.1192 24.5447 37.1192 28.9169 32.7298C33.28 28.3403 33.28 21.2246 28.9169 16.8352ZM16.0808 36.4012C14.3428 35.656 12.7949 34.5291 11.5638 33.1205L8.73045 38.0461L11.6091 37.5917C11.8535 37.5463 12.1069 37.6281 12.2699 37.8371L14.026 40L16.0808 36.4012ZM30.4376 33.1205C29.1975 34.5291 27.6586 35.656 25.9115 36.4012L27.9754 39.9909L29.7316 37.828C29.8945 37.6281 30.148 37.5372 30.3924 37.5826L33.271 38.037L30.4376 33.1205ZM25.4589 20.3067C22.9967 17.8348 19.0047 17.8348 16.5425 20.3067C14.0803 22.7786 14.0803 26.7863 16.5425 29.2582C19.0047 31.7301 22.9967 31.7301 25.4589 29.2582C27.9211 26.7863 27.9211 22.7786 25.4589 20.3067ZM20.9962 17.0624C25.2417 17.0624 28.6906 20.5157 28.6906 24.787C28.6906 29.0492 25.2507 32.5117 20.9962 32.5117C16.7507 32.5117 13.3018 29.0583 13.3018 24.787C13.3109 20.5157 16.7507 17.0624 20.9962 17.0624ZM17.4115 25.2959C17.2214 24.9597 17.33 24.5416 17.665 24.3508C17.9999 24.16 18.4163 24.269 18.6064 24.6053L19.7108 26.5228L23.4946 22.7241C23.7662 22.4515 24.2097 22.4515 24.4722 22.7241C24.7438 22.9967 24.7438 23.4329 24.4722 23.7056L20.0548 28.1404C19.7379 28.4585 19.1948 28.3949 18.9685 27.995L17.4115 25.2959ZM36.9733 6.94766L38.3402 9.79214L41.4542 10.2193C41.9883 10.292 42.1783 10.9463 41.8072 11.3098L39.5351 13.4909L40.0963 16.5989C40.1869 17.126 39.6347 17.5168 39.173 17.2714L36.403 15.781L33.6331 17.2714C33.1805 17.5168 32.5921 17.1351 32.7188 16.5626L33.271 13.4909L30.9989 11.3098C30.6187 10.9463 30.8269 10.292 31.361 10.2193L34.4659 9.79214L35.8328 6.94766C36.0591 6.466 36.738 6.47509 36.9733 6.94766ZM6.15963 6.94766L7.52651 9.79214L10.6405 10.2193C11.1655 10.292 11.3646 10.9463 10.9935 11.3098L8.7214 13.4909L9.28264 16.5989C9.37316 17.126 8.82097 17.5168 8.36836 17.2714L5.59839 15.781L2.82841 17.2714C2.3758 17.5168 1.79646 17.1351 1.91414 16.5626L2.46633 13.4909L0.194223 11.3098C-0.185969 10.9463 0.0222314 10.292 0.556311 10.2193L3.66122 9.79214L5.0281 6.94766C5.25441 6.466 5.93332 6.47509 6.15963 6.94766ZM21.5665 0.359001L22.9334 3.20348L26.0473 3.63061C26.5723 3.70331 26.7715 4.35763 26.4004 4.72115L24.1283 6.90222L24.6895 10.0102C24.78 10.5373 24.2278 10.9281 23.7662 10.6827L20.9962 9.18326L18.2262 10.6737C17.7736 10.919 17.1943 10.5373 17.3119 9.96481L17.8641 6.89313L15.592 4.71206C15.2118 4.34855 15.42 3.69423 15.9541 3.62152L19.059 3.1944L20.4259 0.349913C20.6613 -0.122653 21.3402 -0.113565 21.5665 0.359001Z" fill="#E41F26"/>
+                </svg>
+                
+            </div>
+            <h5 class="fw-bold">Optimized for All Devices</h5>
+            <p class="card-text">
+              This layout adapts gracefully to different screen sizes, ensuring
+              an excellent user experience across desktops, tablets, and mobile
+              devices.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
 
 
-    
-    
+
+    <div class="container identity-section">
+      <div class="identity-card ">
+          <img src="https://via.placeholder.com/350x200" alt="Identity Security">
+          <div class="identity-text">
+              <h2>What is Identity Security?</h2>
+              <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                  when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  It has survived not only five centuries, but also the leap into electronic typesetting, 
+                  remaining essentially unchanged.
+              </p>
+          </div>
+      </div>
+  </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-
-        
-    </script>
-
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
